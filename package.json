@@ -11,14 +11,19 @@
   },
   "dependencies": {
     "firebase": "^11.1.0",
+    "flubber": "^0.4.2",
+    "framer-motion": "^11.15.0",
     "localforage": "^1.10.0",
     "lottie-react": "^2.4.0",
     "match-sorter": "^8.0.0",
+    "motion": "^11.15.0",
     "react": "^18.3.1",
     "react-dom": "^18.3.1",
     "react-hook-form": "^7.54.1",
+    "react-icons": "^5.4.0",
     "react-router-dom": "^7.0.2",
-    "sort-by": "^1.2.0"
+    "sort-by": "^1.2.0",
+    "sweetalert2": "^11.15.2"
   },
   "devDependencies": {
     "@eslint/js": "^9.15.0",

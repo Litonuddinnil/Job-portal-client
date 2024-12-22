@@ -1,13 +1,15 @@
 import React from 'react';
-import Navbar from '../Components/Shared/Navbar';
+import Banner from './Banner';
+import HotData from './HotData';
+ 
+ 
+ 
 
 const Home = () => {
     return (
         <div>
-            <header>
-                <nav><Navbar></Navbar></nav>
-            </header>
-            I am a home page
+              <Banner></Banner>
+              <HotData></HotData>
         </div>
     );
 };

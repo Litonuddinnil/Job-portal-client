@@ -1,8 +1,12 @@
  import Lottie from 'lottie-react';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import registerAnimationData from '../assets/Animation - 1734543452812.json'
+import AuthContext from '../provider/AuthContext/AuthContext';
+import SocialLogin from '../Components/Shared/SocialLogin';
+ 
 
 const Register = () => {
+    const {createUser}= useContext(AuthContext);
   const [formData, setFormData] = useState({
     fullName: '',
     email: '',
@@ -18,7 +22,7 @@ const Register = () => {
       ...formData,
       [name]: value,
     });
-    console.log(name,value)
+     
   };
 
   const validateForm = () => {
@@ -52,8 +56,18 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    const name = formData.fullName;
+    const email = formData.email;
+    const password = formData.password;
+    console.log(name,email,password)
     if (validateForm()) {
-      alert('Registration successful');
+        createUser(email,password)
+        .then(result =>{
+            console.log(result.user);
+        })
+        .catch(err =>{
+            console.log(err.message);
+        })
     }
   };
 
@@ -122,10 +136,23 @@ const Register = () => {
             <button type="submit" className="btn btn-primary w-full py-3 rounded-md">Register</button>
           </div>
         </form>
+        <div>
+          <SocialLogin></SocialLogin>
+        </div>
+
+        <div className="mt-6 text-sm text-center text-gray-600">
+          <p>
+            you have an account?{" "}
+            <a href="/singIn" className="text-blue-500 hover:underline">
+              Login Here
+            </a>
+          </p> 
+        </div>
       </div>
         <div className='w-96'>
             <Lottie animationData={registerAnimationData}></Lottie>
         </div>
+         
     </div>
   );
 };
