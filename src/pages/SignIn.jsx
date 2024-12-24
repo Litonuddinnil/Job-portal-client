@@ -4,6 +4,7 @@ import animationDataLogin from "../assets/login.json";
 import AuthContext from "../provider/AuthContext/AuthContext";
 import { useLocation, useNavigate } from "react-router-dom";
 import SocialLogin from "../Components/Shared/SocialLogin";
+import axios from "axios";
 const SignIn = () => {
   const { signInUser } = useContext(AuthContext);
   const location = useLocation();
@@ -19,9 +20,14 @@ const SignIn = () => {
     console.log("Sign In Attempt:", { email, password });
     signInUser(email, password)
       .then((result) => {
-        console.log(result.user);
+        console.log(result.user?.email);
+        const user = {email : email};
+        axios.post("http://localhost:3000/jwt",user,{withCredentials:true})
+        .then(res =>{
+          console.log(res.data);
+        })
         // navigate(from)
-        navigate(location?.state ? location.state : "/");
+        // navigate(location?.state ? location.state : "/");
         // toast.success("Login successful!");
       })
       .catch((err) => {

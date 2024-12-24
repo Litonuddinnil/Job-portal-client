@@ -77,7 +77,7 @@ const Navbar = () => {
               to="/jobApplications"
               className="text-white text-lg hover:underline hover:text-yellow-500 transition duration-300"
             >
-              Candidates
+              My Application
             </Link>
             <Link
               to="/blog"
@@ -151,7 +151,7 @@ const Navbar = () => {
           to="/jobApplications"
           className="block text-lg hover:underline hover:text-yellow-500"
         >
-          Candidates
+          My Application
         </Link>
         <Link
           to="/blog"
